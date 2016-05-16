@@ -16,33 +16,20 @@ var group_name ="App Helpers";				// The group or individual responsible for thi
 /*---------------------- Buttons ----------------------*/
 /*-----------------------------------------------------*/
 
-var btncount = 4;                            // This is the number of buttons on the App Home tab in main.html
+var btncount = 2;                            // This is the number of buttons on the App Home tab in main.html
 
 // Setup for Button0 (The First Button)
-var btn0_Title = "Say Something";		// This is what is displayed on the button.
-var btn0_MouseOver = "Clicking this button will return your select arguments in a pop-up.";	// This is what appears upon mouseover for the button.
-var btn0_Description = "This button demonstrates a simple use of passing arguments to your script.  Whatever you select as your options to the left will be written to an XML file in the app's folder.  The script then parses this data and returns the results of what you chose.";		// Use this to explain to an end user why they would want to run this button.
-var btn0_Why = "Run this button to see the end results of the options you chose.";		// Use this to explain to an end user why they would want to run this button.
-var btn0_Command = "displaymessage0.js";	// This is the actual script the button will be calling.
-var btn0_Source = "displaymessage0.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
+var btn0_Title = "Turn ON Manage My Internet";		// This is what is displayed on the button.
+var btn0_MouseOver = "Clicking this button will turn on SnapBack&#39;s internet management services and, subsequently, turn off updates when it is detected that you are on a tethered or shared connection, thus saving you precious data and bandwidth.";	// This is what appears upon mouseover for the button.
+var btn0_Description = "With the 'Manage My Internet' app turned on, updates from Windows and other software will be turned off when it is detected that you are on a tethered or otherwise shared connection.  In doing so, you save precious bandwidth and will prevent updates from eating into your data plan.";		// Use this to explain to an end user why they would want to run this button.
+var btn0_Why = "Clicking this button will turn on SnapBack's internet management services and, subsequently, turn off updates when it is detected that you are on a tethered or shared connection, thus saving you precious data and bandwidth.";		// Use this to explain to an end user why they would want to run this button.
+var btn0_Command = "manageinterneton.js";	// This is the actual script the button will be calling.
+var btn0_Source = "manageinterneton.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
+var btn0_CommandParms = "";                 // Add any parameters if and only if your command receives them.
 var btn0_id="btn0";							// The unique ID of the button.  Please follow the format provided.
 
 // Button0 Arguments
-var btn0_arguments=2; 						// Must specify if your button has any arguments, even if its 0 (zero) 
-var btn0_arguments0DisplayName = "Greeting";	// The name of your argument option which is displayed to the user
-var btn0_arguments0xmlName= "greeting";		// The section name which for your argument in the xml file and which should be all one word
-var btn0_arguments0Type = "radio";			// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
-var btn0_arguments0TypeDisplay = "Inline";	// How do you want to display your agument values? "Inline" for one right next each other or "Break" for a line break after each option.
-var btn0_arguments0Values = ["Hello","Goodbye"];	// The values for this argument, which are in an array
-var btn0_arguments0Default = ["Hello"];		// The default value which is selected upon page load and before the button is ever run
-var btn1_arguments0Fixed = [""];			// Are any of the values fixed, meaning they cannot be changed by the user?  If so, include them in an array.  If not, leave blank.
-var btn0_arguments1DisplayName = "Object";	// The name of your argument option which is displayed to the user
-var btn0_arguments1xmlName= "object";		// The section name which for your argument in the xml file
-var btn0_arguments1Type = "radio";			// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
-var btn0_arguments1TypeDisplay = "Inline";	// How do you want to display your agument values? "Inline" for one right next each other or "Break" for a line break after each option.
-var btn0_arguments1Values = ["World","Moon","Sun"];	// The values for this argument, which are in an array
-var btn0_arguments1Default = ["World"];		// The default value which is selected upon page load and before the button is ever run
-var btn0_arguments1Fixed = [""];			// Are any of the values fixed, meaning they cannot be changed by the user?  If so, include them in an array.  If not, leave blank.
+var btn0_arguments=0; 						// Must specify if your button has any arguments, even if its 0 (zero) 
 
 // Permissions for Button0 to be set in HKEY_LOCAL_MACHINE 
 // Don't forget to edit the complementary app-reg.reg file and run it as an administrator
@@ -60,8 +47,8 @@ var btn0_LastModifiedCaution="";     		// Update timestamp if admin modifies cur
 // Service Information for Button0
 // This is used in production only and verified by the Certification Committee
 // Do not edit if you are unfamiliar with the SnapBack Apps Service
-var btn0_ServiceName="";                    // A unique name if using the service.  Need by service in xml file for button 
-var btn0_ElevateNeeded=0;                  	// Does this button need elevation? Needed by service in xml file for button
+var btn0_ServiceName="btn0";                    // A unique name if using the service.  Need by service in xml file for button 
+var btn0_ElevateNeeded=1;                  	// Does this button need elevation? Needed by service in xml file for button
 var btn0_ScriptHasUI=0;                    	// Does the script have an UI? Needed by service in xml file for button
 
 // Run Button Function
@@ -75,34 +62,21 @@ function RunBtn0( AppName, ButtonNum, Computername, CurrentUser, sCmd ){
 
 
 // Setup for Button1 (The Second Button)
-var btn1_Title = "Tell Us About Yourself";		// This is what is displayed on the button.
-var btn1_MouseOver = "Select a variety of options and see how the button parses the information.";	// This is what appears upon mouseover for the button.
-var btn1_Description = "This button writes and returns a more complicated set of arguments.  Based upon the conditions you choose, selected pop-ups will appear. ";		// This is what is displayed as the description of the button.
-var btn1_Why = "Run this button to see how more complicated arguments are passed to a given script.";		// Use this to explain to an end user why they would want to run this button.
-var btn1_Command = "displaymessage1.js";	// This is the actual script the button will be calling.
-var btn1_Source = "displaymessage1.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
+var btn1_Title = "Turn OFF Manage My Internet";		// This is what is displayed on the button.
+var btn1_MouseOver = "Clicking this button will turn off SnapBack&#39;s internet management services.  Warning: Doing so can allow various updates to clog your bandwidth and eat into your data plan.";	// This is what appears upon mouseover for the button.
+var btn1_Description = "Turn OFF the Manage My Internet app.  <strong>Warning:</strong> this will allow updates to run even if you are on a tethered, shared, or slow connection.  You may experience a slower internet connection speed and updates may potentially cause data plan overages.";		// Use this to explain to an end user why they would want to run this button.
+var btn1_Why = "Clicking this button will turn off SnapBack's internet management services.";		// Use this to explain to an end user why they would want to run this button.
+var btn1_Command = "manageinternetoff.js";	// This is the actual script the button will be calling.
+var btn1_Source = "manageinternetoff.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
+var btn1_CommandParms = "";                 // Add any parameters if and only if your command receives them.
 var btn1_id="btn1";							// The unique ID of the button.  Please follow the format provided.
 
-// Button1 Arguments
-var btn1_arguments=2;						// Must specify if your button has any arguments, even if its 0 (zero)  
-var btn1_arguments0DisplayName = "What vehicle do you use?";	// The name of your argument option which is displayed to the user
-var btn1_arguments0xmlName= "YourVehicle";	// The section name which for your argument in the xml file and which should be all one word
-var btn1_arguments0Type = "checkbox";		// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
-var btn1_arguments0TypeDisplay = "Inline";	// How do you want to display your agument values? "Inline" for one right next each other or "Break" for a line break after each option.
-var btn1_arguments0Values = ["Bike","Car","Truck","Golf Cart"];	// The values for this argument, which are in an array
-var btn1_arguments0Default = ["Car","Truck"];	// The default value which is selected upon page load and before the button is ever run
-var btn1_arguments0Fixed = [""];			// Are any of the values fixed, meaning they cannot be changed by the user?  If so, include them in an array.  If not, leave blank.
-var btn1_arguments1DisplayName = "What's your favorite color?";	// The name of your argument option which is displayed to the user
-var btn1_arguments1xmlName= "FavoriteColor";	// The section name which for your argument in the xml file and which should be all one word
-var btn1_arguments1Type = "radio";			// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
-var btn1_arguments1TypeDisplay = "Inline";	// How do you want to display your agument values? "Inline" for one right next each other or "Break" for a line break after each option.
-var btn1_arguments1Values = ["Blue","Red","Green","Brown","Other"];	// The values for this argument, which are in an array
-var btn1_arguments1Default = ["Blue"];		// The default value which is selected upon page load and before the button is ever run
-var btn1_arguments1Fixed = [""];			// Are any of the values fixed, meaning they cannot be changed by the user?  If so, include them in an array.  If not, leave blank.
+// Button0 Arguments
+var btn1_arguments=0; 						// Must specify if your button has any arguments, even if its 0 (zero) 
 
-// Permissions for Button1 to be set in HKEY_LOCAL_MACHINE 
+// Permissions for Button0 to be set in HKEY_LOCAL_MACHINE 
 // Don't forget to edit the complementary app-reg.reg file and run it as an administrator
-var btn1_KeyValue="button1"; 				// Key value name for the registry
+var btn1_KeyValue="button0"; 				// Key value name for the registry
 var btn1_DefaultEnableButton=1;
 var btn1_CurrentEnableButton=1;        		// Display on Permissions tab.  Only an admin can modify current values 
 var btn1_LastModifiedEnableButton="";  		// Update timestamp if admin modifies current value
@@ -116,115 +90,17 @@ var btn1_LastModifiedCaution="";     		// Update timestamp if admin modifies cur
 // Service Information for Button1
 // This is used in production only and verified by the Certification Committee
 // Do not edit if you are unfamiliar with the SnapBack Apps Service
-var btn1_ServiceName="";                    // A unique name if using the service.  Need by service in xml file for button 
-var btn1_ElevateNeeded=0;                  	// Does this button need elevation? Needed by service in xml file for button
+var btn1_ServiceName="btn1";                    // A unique name if using the service.  Need by service in xml file for button 
+var btn1_ElevateNeeded=1;                  	// Does this button need elevation? Needed by service in xml file for button
 var btn1_ScriptHasUI=0;                    	// Does the script have an UI? Needed by service in xml file for button
 
 // Run Button Function
 // This runs your button when it is clicked
 // Add any functions or calls you wish to make before or after the primary "RunApps" function
 function RunBtn1( AppName, ButtonNum, Computername, CurrentUser, sCmd ){
-	RunApps( AppName, ButtonNum, Computername, CurrentUser, sCmd );		//This function executes your script.  Do not edit this line
+	RunApps( AppName, ButtonNum, Computername, CurrentUser, sCmd );		// This function executes your script.  Do not edit this line
 }
 
-
-
-
-// Setup for Button2 (The Third Button)
-var btn2_Title = "Tell Us MORE About Yourself";		// This is what is displayed on the button.
-var btn2_MouseOver = "Select a variety of options and see how the button parses the information.  This button shows arguments displayed with a page break and with one option as fixed.";	// This is what appears upon mouseover for the button.
-var btn2_Description = "This button demonstrates the capability of displaying arguments with a line break as opposed to inline.  It also shows how one argument can be fixed so that a user cannot change it.";		// This is what is displayed as the description of the button.
-var btn2_Why = "Run this button to see how fixed arguments, as displayed with line breaks, can be achieved";		// Use this to explain to an end user why they would want to run this button.
-var btn2_Command = "displaymessage2.js";	// This is the actual script the button will be calling.
-var btn2_Source = "displaymessage2.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
-var btn2_id="btn2";							// The unique ID of the button.  Please follow the format provided.
-
-// Button2 Arguments
-var btn2_arguments=1;						// Must specify if your button has any arguments, even if its 0 (zero)  
-var btn2_arguments0DisplayName = "You are a(n):";	// The name of your argument option which is displayed to the user
-var btn2_arguments0xmlName= "YouAre";	// The section name which for your argument in the xml file and which should be all one word
-var btn2_arguments0Type = "checkbox";		// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
-var btn2_arguments0TypeDisplay = "Break";  	// How do you want to display your agument values? "Inline" for one right next each other or "Break" for a line break after each option.
-var btn2_arguments0Values = ["Human","Software Engineer","End User","Evil Bond Villain Plotting on Taking Over the World"];	// The values for this argument, which are in an array
-var btn2_arguments0Default = ["Human"];	// The default value which is selected upon page load and before the button is ever run
-var btn2_arguments0Fixed = ["Human"];			// Are any of the values fixed, meaning they cannot be changed by the user?  If so, include them in an array.  If not, leave blank.
-
-// Permissions for Button1 to be set in HKEY_LOCAL_MACHINE 
-// Don't forget to edit the complementary app-reg.reg file and run it as an administrator
-var btn2_KeyValue="button1"; 				// Key value name for the registry
-var btn2_DefaultEnableButton=1;
-var btn2_CurrentEnableButton=1;        		// Display on Permissions tab.  Only an admin can modify current values 
-var btn2_LastModifiedEnableButton="";  		// Update timestamp if admin modifies current value
-var btn2_DefaultAllowUser=1;
-var btn2_CurrentAllowUser=1;         		// Display on Permissions tab.  Only an admin can modify current values 
-var btn2_LastModifiedAllowUser="";   		// Update timestamp if admin modifies current value
-var btn2_DefaultCaution=1;
-var btn2_CurrentCaution=1;           		// Display on Permissions tab.  Only an admin can modify current values 
-var btn2_LastModifiedCaution="";     		// Update timestamp if admin modifies current value
-
-// Service Information for Button1
-// This is used in production only and verified by the Certification Committee
-// Do not edit if you are unfamiliar with the SnapBack Apps Service
-var btn2_ServiceName="";                    // A unique name if using the service.  Need by service in xml file for button 
-var btn2_ElevateNeeded=0;                  	// Does this button need elevation? Needed by service in xml file for button
-var btn2_ScriptHasUI=0;                    	// Does the script have an UI? Needed by service in xml file for button
-
-// Run Button Function
-// This runs your button when it is clicked
-// Add any functions or calls you wish to make before or after the primary "RunApps" function
-function RunBtn2( AppName, ButtonNum, Computername, CurrentUser, sCmd ){
-	RunApps( AppName, ButtonNum, Computername, CurrentUser, sCmd );		//This function executes your script.  Do not edit this line
-}
-
-
-
-
-
-// Setup for Button3 (The Fourth Button)
-var btn3_Title = "Run a Simple Button";		// This is what is displayed on the button.
-var btn3_MouseOver = "Run a Simple Button without Any Arguments";	// This is what appears upon mouseover for the button.
-var btn3_Description = "This button merely demonstrates that a button does not have to have arguments.  Further, you can include simple buttons with ones that pass arguments all on a given page.";		// This is what is displayed as the description of the button.
-var btn3_Why = "Run this button to see how a simple button without arguments works.";		// Use this to explain to an end user why they would want to run this button.
-var btn3_Command = "displaymessage3.js";	// This is the actual script the button will be calling.
-var btn3_Source = "displaymessage3.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
-var btn3_id="btn3";							// The unique ID of the button.  Please follow the format provided.
-
-// Button3 Arguments
-var btn3_arguments=0;						// Must specify if your button has any arguments, even if its 0 (zero)  
-var btn3_arguments0DisplayName = "";		// The name of your argument option which is displayed to the user
-var btn3_arguments0xmlName= "";				// The section name which for your argument in the xml file and which should be all one word
-var btn3_arguments0Type = "";				// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
-var btn3_arguments0TypeDisplay = "Inline";	// How do you want to display your agument values? "Inline" for one right next each other or "Break" for a line break after each option.
-var btn3_arguments0Values = ["",""];		// The values for this argument, which are in an array
-var btn3_arguments0Default = [""];			// The default value which is selected upon page load and before the button is ever run
-var btn3_arguments0Fixed = [""];			// If the argument type if checkbox, are any of the values required?  If so, include them in an array.  If not, leave blank.
-
-// Permissions for Button3 to be set in HKEY_LOCAL_MACHINE 
-// Don't forget to edit the complementary app-reg.reg file and run it as an administrator
-var btn3_KeyValue="button2"; 				// Key value name for the registry
-var btn3_DefaultEnableButton=1;
-var btn3_CurrentEnableButton=1;        		// Display on Permissions tab.  Only an admin can modify current values 
-var btn3_LastModifiedEnableButton="";  		// Update timestamp if admin modifies current value
-var btn3_DefaultAllowUser=1;
-var btn3_CurrentAllowUser=1;         		// Display on Permissions tab.  Only an admin can modify current values 
-var btn3_LastModifiedAllowUser="";   		// Update timestamp if admin modifies current value
-var btn3_DefaultCaution=1;
-var btn3_CurrentCaution=1;           		// Display on Permissions tab.  Only an admin can modify current values 
-var btn3_LastModifiedCaution="";     		// Update timestamp if admin modifies current value
-
-// Service Information for Button3
-// This is used in production only and verified by the Certification Committee
-// Do not edit if you are unfamiliar with the SnapBack Apps Service
-var btn3_ServiceName="";                    // A unique name if using the service.  Need by service in xml file for button 
-var btn3_ElevateNeeded=0;                  	// Does this button need elevation? Needed by service in xml file for button
-var btn3_ScriptHasUI=0;                    	// Does the script have an UI? Needed by service in xml file for button
-
-// Run Button Function
-// This runs your button when it is clicked
-// Add any functions or calls you wish to make before or after the primary "RunApps" function
-function RunBtn3( AppName, ButtonNum, Computername, CurrentUser, sCmd ){
-	RunApps( AppName, ButtonNum, Computername, CurrentUser, sCmd );		//This function executes your script.  Do not edit this line
-}
 
 
 
@@ -233,3 +109,36 @@ function RunBtn3( AppName, ButtonNum, Computername, CurrentUser, sCmd ){
 /*----------------- Custom Functions ------------------*/
 /*-----------------------------------------------------*/	
 //***** Use the below area for your common functions *****
+
+function myInternetStatus() {
+	try {
+		var internetMnagementStatus = ReadFromRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\CDP\\SnapBack\\Apps\\myinternet\\ManageInternet");
+		var s= "<div class='statusdiv'>";
+		if (internetMnagementStatus == "true") {
+			s+="Manage My Internet is <font color=\"green\"><strong>ON</strong></font> for this Machine";
+		}
+		else {
+			s+="Manage My Internet is <font color=\"red\"><strong>OFF</strong></font> for this Machine";
+		}
+		s+="</div>";
+		document.write(s);
+	}
+	catch(e) {
+		var s="<div class='statusdiv'>Manage My Internet is <font color=\"red\"><strong>OFF</strong></font> for this Machine</div>";
+		document.write(s);
+	}
+}
+
+$(document).ready(function() {
+	try {
+		if (internetMnagementStatus == "true") {
+			$( '#cdpbutton1 button' ).css('background-color','#e6e6e6').css( 'cursor', 'not-allowed' ).attr("disabled", 'disable').attr("title", 'This button cannot be clicked since you currently have the Manage My Internet app turned ON');
+		}
+		else {
+			$( '#cdpbutton2 button' ).css('background-color','#e6e6e6').css( 'cursor', 'not-allowed' ).attr("disabled", 'disable').attr("title", 'This button cannot be clicked since you currently have the Manage My Internet app turned OFF');
+		}
+	}
+	catch(e) {
+		$( '#cdpbutton2 button' ).css('background-color','#e6e6e6').css( 'cursor', 'not-allowed' ).attr("disabled", 'disable').attr("title", 'This button cannot be clicked since you currently have the Manage My Internet app turned OFF')
+	}
+})
