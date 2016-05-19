@@ -163,3 +163,10 @@ function RunBtn2( AppName, ButtonNum, Computername, CurrentUser, sCmd ){
 /*----------------- Custom Functions ------------------*/
 /*-----------------------------------------------------*/	
 //***** Use the below area for your common functions *****
+
+// Check the Status of Everything and Adjust UI Accordingly
+function CheckStatus() {
+		// To Do: Check Registry for Specific Values, Try/Catch, and Report Current Status
+		var s="<div class='statusdiv'>Updates Are Currently <font color=\"red\"><strong>ENABLED</strong></font> | Syncing Is Currently <font color=\"red\"><strong>ENABLED</strong></font><br />Syncing Over Tethered Connection is Currently <font color=\"red\"><strong>ENABLED</strong></font></div>";
+		document.write(s);		
+}
