@@ -77,7 +77,7 @@ var btn1_Source = "pausesyncing.txt";    // Duplicate the above script as a .txt
 var btn1_id="btn1";							// The unique ID of the button.  Please follow the format provided.
 
 // Button1 Arguments
-var btn1_arguments=1;						// Must specify if your button has any arguments, even if its 0 (zero)  
+var btn1_arguments=2;						// Must specify if your button has any arguments, even if its 0 (zero)  
 var btn1_arguments0DisplayName = "Time of Pause";	// The name of your argument option which is displayed to the user
 var btn1_arguments0xmlName= "SyncPauseTime";	// The section name which for your argument in the xml file and which should be all one word
 var btn1_arguments0Type = "radio";		// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
@@ -85,6 +85,14 @@ var btn1_arguments0TypeDisplay = "Inline";	// How do you want to display your ag
 var btn1_arguments0Values = ["1 Hour","12 Hours","1 Day","1 Week"];	// The values for this argument, which are in an array
 var btn1_arguments0Default = ["1 Hour"];	// The default value which is selected upon page load and before the button is ever run
 var btn1_arguments0Fixed = [""];			// Are any of the values fixed, meaning they cannot be changed by the user?  If so, include them in an array.  If not, leave blank.
+
+var btn1_arguments1DisplayName = "Apply to";	// The name of your argument option which is displayed to the user
+var btn1_arguments1xmlName= "ApplySyncPauseTo";	// The section name which for your argument in the xml file and which should be all one word
+var btn1_arguments1Type = "checkbox";		// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
+var btn1_arguments1TypeDisplay = "Inline";	// How do you want to display your agument values? "Inline" for one right next each other or "Break" for a line break after each option.
+var btn1_arguments1Values = ["GoodSync","SugarSync","BitTorrent","Dropbox","Google Drive"];	// The values for this argument, which are in an array
+var btn1_arguments1Default = [""];	// The default value which is selected upon page load and before the button is ever run
+var btn1_arguments1Fixed = [""];			// Are any of the values fixed, meaning they cannot be changed by the user?  If so, include them in an array.  If not, leave blank.
 
 // Permissions for Button1 to be set in HKEY_LOCAL_MACHINE 
 // Don't forget to edit the complementary app-reg.reg file and run it as an administrator
@@ -126,7 +134,14 @@ var btn2_Source = "syncingtethered.txt";    // Duplicate the above script as a .
 var btn2_id="btn2";							// The unique ID of the button.  Please follow the format provided.
 
 // Button2 Arguments
-var btn2_arguments=0;						// Must specify if your button has any arguments, even if its 0 (zero)  
+var btn2_arguments=1;						// Must specify if your button has any arguments, even if its 0 (zero)
+var btn2_arguments0DisplayName = "Apply to";	// The name of your argument option which is displayed to the user
+var btn2_arguments0xmlName= "ApplySyncTetherTo";	// The section name which for your argument in the xml file and which should be all one word
+var btn2_arguments0Type = "checkbox";		// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
+var btn2_arguments0TypeDisplay = "Inline";	// How do you want to display your agument values? "Inline" for one right next each other or "Break" for a line break after each option.
+var btn2_arguments0Values = ["GoodSync","SugarSync","BitTorrent","Dropbox","Google Drive"];	// The values for this argument, which are in an array
+var btn2_arguments0Default = [""];	// The default value which is selected upon page load and before the button is ever run
+var btn2_arguments0Fixed = [""];			// Are any of the values fixed, meaning they cannot be changed by the user?  If so, include them in an array.  If not, leave blank.  
 
 // Permissions for Button1 to be set in HKEY_LOCAL_MACHINE 
 // Don't forget to edit the complementary app-reg.reg file and run it as an administrator
