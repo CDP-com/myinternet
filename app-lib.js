@@ -16,20 +16,26 @@ var group_name ="App Helpers";				// The group or individual responsible for thi
 /*---------------------- Buttons ----------------------*/
 /*-----------------------------------------------------*/
 
-var btncount = 2;                            // This is the number of buttons on the App Home tab in main.html
+var btncount = 3;                            // This is the number of buttons on the App Home tab in main.html
 
 // Setup for Button0 (The First Button)
-var btn0_Title = "Turn ON Manage My Internet";		// This is what is displayed on the button.
-var btn0_MouseOver = "Clicking this button will turn on SnapBack&#39;s internet management services and, subsequently, turn off updates when it is detected that you are on a tethered or shared connection, thus saving you precious data and bandwidth.";	// This is what appears upon mouseover for the button.
-var btn0_Description = "With the 'Manage My Internet' app turned on, updates from Windows and other software will be turned off when it is detected that you are on a tethered or otherwise shared connection.  In doing so, you save precious bandwidth and will prevent updates from eating into your data plan.";		// Use this to explain to an end user why they would want to run this button.
-var btn0_Why = "Clicking this button will turn on SnapBack's internet management services and, subsequently, turn off updates when it is detected that you are on a tethered or shared connection, thus saving you precious data and bandwidth.";		// Use this to explain to an end user why they would want to run this button.
-var btn0_Command = "manageinterneton.js";	// This is the actual script the button will be calling.
-var btn0_Source = "manageinterneton.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
-var btn0_CommandParms = "";                 // Add any parameters if and only if your command receives them.
+var btn0_Title = "Pause All Updates";		// This is what is displayed on the button.
+var btn0_MouseOver = "Pause all updates for a list of programs for a given period of time.";	// This is what appears upon mouseover for the button.
+var btn0_Description = "Once this button is clicked, all programs you have selected will have their update process paused for the given time period you specified. This would be helpful during situations in which you wish to get the most out of your bandwidth.  For example, if you want the best quality streaming video, click this button to pause all program updates that could potentially steal your bandwidth. After the period of time you specify, updates will return to normal without you having to do anything extra.";		// Use this to explain to an end user why they would want to run this button.
+var btn0_Why = "You may want to run this button if you are streaming video or playing a game and wish to get the most out of your bandwidth for a set period. Additionally, you may consider running this button if you know you will be on a limited connection for a certain period of time, such as when you are flying or are on a cruise ship.";		// Use this to explain to an end user why they would want to run this button.
+var btn0_Command = "pauseupdates.js";	// This is the actual script the button will be calling.
+var btn0_Source = "pauseupdates.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
 var btn0_id="btn0";							// The unique ID of the button.  Please follow the format provided.
 
 // Button0 Arguments
-var btn0_arguments=0; 						// Must specify if your button has any arguments, even if its 0 (zero) 
+var btn0_arguments=1;						// Must specify if your button has any arguments, even if its 0 (zero)  
+var btn0_arguments0DisplayName = "Time of Pause";	// The name of your argument option which is displayed to the user
+var btn0_arguments0xmlName= "UpdatePauseTime";	// The section name which for your argument in the xml file and which should be all one word
+var btn0_arguments0Type = "radio";		// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
+var btn0_arguments0TypeDisplay = "Inline";	// How do you want to display your agument values? "Inline" for one right next each other or "Break" for a line break after each option.
+var btn0_arguments0Values = ["1 Hour","12 Hours","1 Day","1 Week"];	// The values for this argument, which are in an array
+var btn0_arguments0Default = ["1 Hour"];	// The default value which is selected upon page load and before the button is ever run
+var btn0_arguments0Fixed = [""];			// Are any of the values fixed, meaning they cannot be changed by the user?  If so, include them in an array.  If not, leave blank.
 
 // Permissions for Button0 to be set in HKEY_LOCAL_MACHINE 
 // Don't forget to edit the complementary app-reg.reg file and run it as an administrator
@@ -47,8 +53,8 @@ var btn0_LastModifiedCaution="";     		// Update timestamp if admin modifies cur
 // Service Information for Button0
 // This is used in production only and verified by the Certification Committee
 // Do not edit if you are unfamiliar with the SnapBack Apps Service
-var btn0_ServiceName="btn0";                    // A unique name if using the service.  Need by service in xml file for button 
-var btn0_ElevateNeeded=1;                  	// Does this button need elevation? Needed by service in xml file for button
+var btn0_ServiceName="";                    // A unique name if using the service.  Need by service in xml file for button 
+var btn0_ElevateNeeded=0;                  	// Does this button need elevation? Needed by service in xml file for button
 var btn0_ScriptHasUI=0;                    	// Does the script have an UI? Needed by service in xml file for button
 
 // Run Button Function
@@ -62,21 +68,27 @@ function RunBtn0( AppName, ButtonNum, Computername, CurrentUser, sCmd ){
 
 
 // Setup for Button1 (The Second Button)
-var btn1_Title = "Turn OFF Manage My Internet";		// This is what is displayed on the button.
-var btn1_MouseOver = "Clicking this button will turn off SnapBack&#39;s internet management services.  Warning: Doing so can allow various updates to clog your bandwidth and eat into your data plan.";	// This is what appears upon mouseover for the button.
-var btn1_Description = "Turn OFF the Manage My Internet app.  <strong>Warning:</strong> this will allow updates to run even if you are on a tethered, shared, or slow connection.  You may experience a slower internet connection speed and updates may potentially cause data plan overages.";		// Use this to explain to an end user why they would want to run this button.
-var btn1_Why = "Clicking this button will turn off SnapBack's internet management services.";		// Use this to explain to an end user why they would want to run this button.
-var btn1_Command = "manageinternetoff.js";	// This is the actual script the button will be calling.
-var btn1_Source = "manageinternetoff.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
-var btn1_CommandParms = "";                 // Add any parameters if and only if your command receives them.
+var btn1_Title = "Pause All Syncing";		// This is what is displayed on the button.
+var btn1_MouseOver = "Pause all syncing for a list of programs for a given period of time.";	// This is what appears upon mouseover for the button.
+var btn1_Description = "Sync programs, which check your local machine and sync it to the cloud, can take precious bandwidth and slow down your internet experience. By pausing syncing for a given period of time, you can reclaim this bandwidth. After the time period you specify, syncing will turn back on without any additional work on your part.";		// This is what is displayed as the description of the button.
+var btn1_Why = "You may want to run this button if you are streaming video or playing a game and wish to get the most out of your bandwidth for a set period. Additionally, you may consider running this button if you know you will be on a limited connection for a certain period of time, such as when you are flying or are on a cruise ship.";		// Use this to explain to an end user why they would want to run this button.
+var btn1_Command = "pausesyncing.js";	// This is the actual script the button will be calling.
+var btn1_Source = "pausesyncing.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
 var btn1_id="btn1";							// The unique ID of the button.  Please follow the format provided.
 
-// Button0 Arguments
-var btn1_arguments=0; 						// Must specify if your button has any arguments, even if its 0 (zero) 
+// Button1 Arguments
+var btn1_arguments=1;						// Must specify if your button has any arguments, even if its 0 (zero)  
+var btn1_arguments0DisplayName = "Time of Pause";	// The name of your argument option which is displayed to the user
+var btn1_arguments0xmlName= "SyncPauseTime";	// The section name which for your argument in the xml file and which should be all one word
+var btn1_arguments0Type = "radio";		// The type of input to display your argument.  Currently supporting "checkbox" and "radio"
+var btn1_arguments0TypeDisplay = "Inline";	// How do you want to display your agument values? "Inline" for one right next each other or "Break" for a line break after each option.
+var btn1_arguments0Values = ["1 Hour","12 Hours","1 Day","1 Week"];	// The values for this argument, which are in an array
+var btn1_arguments0Default = ["1 Hour"];	// The default value which is selected upon page load and before the button is ever run
+var btn1_arguments0Fixed = [""];			// Are any of the values fixed, meaning they cannot be changed by the user?  If so, include them in an array.  If not, leave blank.
 
-// Permissions for Button0 to be set in HKEY_LOCAL_MACHINE 
+// Permissions for Button1 to be set in HKEY_LOCAL_MACHINE 
 // Don't forget to edit the complementary app-reg.reg file and run it as an administrator
-var btn1_KeyValue="button0"; 				// Key value name for the registry
+var btn1_KeyValue="button1"; 				// Key value name for the registry
 var btn1_DefaultEnableButton=1;
 var btn1_CurrentEnableButton=1;        		// Display on Permissions tab.  Only an admin can modify current values 
 var btn1_LastModifiedEnableButton="";  		// Update timestamp if admin modifies current value
@@ -90,15 +102,57 @@ var btn1_LastModifiedCaution="";     		// Update timestamp if admin modifies cur
 // Service Information for Button1
 // This is used in production only and verified by the Certification Committee
 // Do not edit if you are unfamiliar with the SnapBack Apps Service
-var btn1_ServiceName="btn1";                    // A unique name if using the service.  Need by service in xml file for button 
-var btn1_ElevateNeeded=1;                  	// Does this button need elevation? Needed by service in xml file for button
+var btn1_ServiceName="";                    // A unique name if using the service.  Need by service in xml file for button 
+var btn1_ElevateNeeded=0;                  	// Does this button need elevation? Needed by service in xml file for button
 var btn1_ScriptHasUI=0;                    	// Does the script have an UI? Needed by service in xml file for button
 
 // Run Button Function
 // This runs your button when it is clicked
 // Add any functions or calls you wish to make before or after the primary "RunApps" function
 function RunBtn1( AppName, ButtonNum, Computername, CurrentUser, sCmd ){
-	RunApps( AppName, ButtonNum, Computername, CurrentUser, sCmd );		// This function executes your script.  Do not edit this line
+	RunApps( AppName, ButtonNum, Computername, CurrentUser, sCmd );		//This function executes your script.  Do not edit this line
+}
+
+
+
+
+// Setup for Button2 (The Third Button)
+var btn2_Title = "Block Syncing Over Tethering";		// This is what is displayed on the button.
+var btn2_MouseOver = "If you are tethered to another device, SnapBack will detect this and prevent your syncing programs from taking up this limited connection.";	// This is what appears upon mouseover for the button.
+var btn2_Description = "With this button enabled, if SnapBack detects you are tethered to another device, then all syncing will be disabled. Once SnapBack detects you are on a normal WIFI or network connection, syncing will be allowed to resume. This helps prevent programs from stealing your bandwidth and can prevent possible data overage charges. It is truly a set-it-and-forget-it button.";		// This is what is displayed as the description of the button.
+var btn2_Why = "If you are tethered to another device, SnapBack will detect this and prevent your syncing programs from taking up this limited connection. Run this button to permanently disable syncing if you are tethered.";		// Use this to explain to an end user why they would want to run this button.
+var btn2_Command = "syncingtethered.js";	// This is the actual script the button will be calling.
+var btn2_Source = "syncingtethered.txt";    // Duplicate the above script as a .txt file so that the source code can be shown on the How it Works tab.
+var btn2_id="btn2";							// The unique ID of the button.  Please follow the format provided.
+
+// Button2 Arguments
+var btn2_arguments=0;						// Must specify if your button has any arguments, even if its 0 (zero)  
+
+// Permissions for Button1 to be set in HKEY_LOCAL_MACHINE 
+// Don't forget to edit the complementary app-reg.reg file and run it as an administrator
+var btn2_KeyValue="button1"; 				// Key value name for the registry
+var btn2_DefaultEnableButton=1;
+var btn2_CurrentEnableButton=1;        		// Display on Permissions tab.  Only an admin can modify current values 
+var btn2_LastModifiedEnableButton="";  		// Update timestamp if admin modifies current value
+var btn2_DefaultAllowUser=1;
+var btn2_CurrentAllowUser=1;         		// Display on Permissions tab.  Only an admin can modify current values 
+var btn2_LastModifiedAllowUser="";   		// Update timestamp if admin modifies current value
+var btn2_DefaultCaution=1;
+var btn2_CurrentCaution=1;           		// Display on Permissions tab.  Only an admin can modify current values 
+var btn2_LastModifiedCaution="";     		// Update timestamp if admin modifies current value
+
+// Service Information for Button1
+// This is used in production only and verified by the Certification Committee
+// Do not edit if you are unfamiliar with the SnapBack Apps Service
+var btn2_ServiceName="";                    // A unique name if using the service.  Need by service in xml file for button 
+var btn2_ElevateNeeded=0;                  	// Does this button need elevation? Needed by service in xml file for button
+var btn2_ScriptHasUI=0;                    	// Does the script have an UI? Needed by service in xml file for button
+
+// Run Button Function
+// This runs your button when it is clicked
+// Add any functions or calls you wish to make before or after the primary "RunApps" function
+function RunBtn2( AppName, ButtonNum, Computername, CurrentUser, sCmd ){
+	RunApps( AppName, ButtonNum, Computername, CurrentUser, sCmd );		//This function executes your script.  Do not edit this line
 }
 
 
@@ -109,36 +163,3 @@ function RunBtn1( AppName, ButtonNum, Computername, CurrentUser, sCmd ){
 /*----------------- Custom Functions ------------------*/
 /*-----------------------------------------------------*/	
 //***** Use the below area for your common functions *****
-
-function myInternetStatus() {
-	try {
-		var internetMnagementStatus = ReadFromRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\CDP\\SnapBack\\Apps\\myinternet\\ManageInternet");
-		var s= "<div class='statusdiv'>";
-		if (internetMnagementStatus == "true") {
-			s+="Manage My Internet is <font color=\"green\"><strong>ON</strong></font> for this Machine";
-		}
-		else {
-			s+="Manage My Internet is <font color=\"red\"><strong>OFF</strong></font> for this Machine";
-		}
-		s+="</div>";
-		document.write(s);
-	}
-	catch(e) {
-		var s="<div class='statusdiv'>Manage My Internet is <font color=\"red\"><strong>OFF</strong></font> for this Machine</div>";
-		document.write(s);
-	}
-}
-
-$(document).ready(function() {
-	try {
-		if (internetMnagementStatus == "true") {
-			$( '#cdpbutton1 button' ).css('background-color','#e6e6e6').css( 'cursor', 'not-allowed' ).attr("disabled", 'disable').attr("title", 'This button cannot be clicked since you currently have the Manage My Internet app turned ON');
-		}
-		else {
-			$( '#cdpbutton2 button' ).css('background-color','#e6e6e6').css( 'cursor', 'not-allowed' ).attr("disabled", 'disable').attr("title", 'This button cannot be clicked since you currently have the Manage My Internet app turned OFF');
-		}
-	}
-	catch(e) {
-		$( '#cdpbutton2 button' ).css('background-color','#e6e6e6').css( 'cursor', 'not-allowed' ).attr("disabled", 'disable').attr("title", 'This button cannot be clicked since you currently have the Manage My Internet app turned OFF')
-	}
-})
