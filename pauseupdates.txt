@@ -10,6 +10,6 @@ var time = xmlDoc.getElementsByTagName('UpdatePauseTime')[0].firstChild.nodeValu
 
 // Script what you want to happen based upon the arguments returned
 var wsh = new ActiveXObject("WScript.Shell");
-wsh.popup( "Updates (such as though by Windows and software programs) would be disabled for: "+ time +"", 5, "Pause Updates" );
+wsh.popup( "Updates (such as those by Windows and software programs) would be disabled for: "+ time +"", 5, "Pause Updates" );
 
 wsh = null;
